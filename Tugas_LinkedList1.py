@@ -10,7 +10,7 @@ head = None
 tail = None
 
 # membuat fungsi untuk menambahkan menu dalam program ke class MenuItem
-def addMenuItem(NamaMenu, Harga):
+def TambahMenu(NamaMenu, Harga):
     global head, tail
     newItem = MenuItem(NamaMenu, Harga)
     if head is None:
@@ -39,11 +39,11 @@ Berikut merupakan menu kami :
 Ketik menu yang akan dipesan, dan ketik "done" jika merasa cukup.""")
     
 # Menambahkan menu dalam program
-addMenuItem("Mixue Ice Cream", 5000)
-addMenuItem("Boba Shake", 16000)
-addMenuItem("Mi Sundae", 14000)
-addMenuItem("Mie Ganas", 11000)
-addMenuItem("Creamy Mango Boba", 22000)
+TambahMenu("Mixue Ice Cream", 5000)
+TambahMenu("Boba Shake", 16000)
+TambahMenu("Mi Sundae", 14000)
+TambahMenu("Mie Ganas", 11000)
+TambahMenu("Creamy Mango Boba", 22000)
 
 # mendefinisikann variabel untuk daftar pesanan
 totalHarga = 0
@@ -66,19 +66,18 @@ while True:
     temp = head
     while temp is not None:
         if temp.NamaMenu == order: # jika pesanan ditemukan dalam linked list, maka
-            pesanan[Jml_Pesanan] = temp.NamaMenu # nama pesanan akan dimasukkan ke list
- # pesanan dan
-            harga[Jml_Pesanan] = temp.Harga
-            Jml_Pesanan += 1
-            totalHarga += temp.Harga
+            pesanan[Jml_Pesanan] = temp.NamaMenu # nama pesanan akan dimasukkan ke list pesanan sesuai indeks jumlah pesanan
+            harga[Jml_Pesanan] = temp.Harga # daftar harga juga akan dimasukkan ke list harga sesuai dengan indeks jumlah pesanan
+            Jml_Pesanan += 1 
+            totalHarga += temp.Harga # penjumlahan harga total
             break
         temp = temp.next
+        
 # membuat total harga dan daftar menu yang dipesan
 print("\n|| Pesanan Anda ||")
-for i in range(Jml_Pesanan): # menggunakan perulangan for untuk mengambil daftar
-# pesanan dan harga melalui list daftar pesanan dan harga
+for i in range(Jml_Pesanan): # menggunakan perulangan for untuk mengambil daftar pesanan dan harga melalui list daftar pesanan dan harga
     print(pesanan[i], "Rp.", harga[i])
+    
 # membuat pesan penutup berupa total harga
-
 print("\nTotal harga pesanan Anda: Rp.", totalHarga)
 print("\n------Terima Kasih telah E-Order di Warung Kami------")
