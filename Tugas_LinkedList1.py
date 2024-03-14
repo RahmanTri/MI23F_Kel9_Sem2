@@ -54,3 +54,31 @@ Jml_Pesanan = 0
 
 # mulai menjalankan program
 DisplayMenu()
+# membuat looping program agar dapat mengambil pesanan secara berulang 
+while True:
+    order = input("\nSilakan ketik pesanan Anda: ")
+    if order == "done":
+        break
+    print("======")
+    print("||>>", order, "sudah ditambahkan ke keranjang <<||")
+    print("======")
+    # untuk mencari daftar menu yang telah dipesan
+    temp = head
+    while temp is not None:
+        if temp.NamaMenu == order: # jika pesanan ditemukan dalam linked list, maka
+            pesanan[Jml_Pesanan] = temp.NamaMenu # nama pesanan akan dimasukkan ke list
+ pesanan dan
+            harga[Jml_Pesanan] = temp.Harga
+            Jml_Pesanan += 1
+            totalHarga += temp.Harga
+            break
+        temp = temp.next
+# membuat total harga dan daftar menu yang dipesan
+print("\n|| Pesanan Anda ||")
+for i in range(Jml_Pesanan): # menggunakan perulangan for untuk mengambil daftar
+pesanan dan harga melalui list daftar pesanan dan harga
+    print(pesanan[i], "Rp.", harga[i])
+# membuat pesan penutup berupa total harga
+
+print("\nTotal harga pesanan Anda: Rp.", totalHarga)
+print("\n------Terima Kasih telah E-Order di Warung Kami------")
